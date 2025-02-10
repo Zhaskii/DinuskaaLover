@@ -1,3 +1,4 @@
+/* Heart Animation */
 .heart {
   font-size: 6vw;
   color: red;
@@ -15,6 +16,8 @@
     transform: scale(1);
   }
 }
+
+/* Background */
 #bg {
   position: fixed;
   top: 0;
@@ -24,16 +27,20 @@
   background: url("https://i.postimg.cc/NftwM23q/D.jpg") no-repeat center center;
   background-size: contain;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   z-index: -1;
-  background-attachment: fixed; /* Ensures background stays fixed while scrolling */
+  background-attachment: fixed;
+  -webkit-background-attachment: fixed;
+  -moz-background-attachment: fixed; /* Firefox */
 }
 
+/* Fade Out Animation */
 .fade-out {
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
 }
 
+/* Falling Item Animation */
 .falling-item {
   position: absolute;
   top: -50px;
@@ -50,6 +57,7 @@
   }
 }
 
+/* Slideshow Container */
 .slideshow-container {
   position: fixed;
   top: 50%;
@@ -58,10 +66,11 @@
   z-index: 10;
 }
 
+/* Ensure image stays contained but never exceeds viewport size */
 .slideshow-image {
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%; /* You can adjust this value */
   border-radius: 10px;
   border: 10px double red;
   box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
@@ -69,6 +78,20 @@
   transition: opacity 2s ease-in-out;
 }
 
+/* For smaller devices, adjust the max-width to ensure visibility */
+@media screen and (max-width: 800px) {
+  .slideshow-image {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .slideshow-image {
+    max-width: 100%;
+  }
+}
+
+/* Video Container */
 .video-container {
   width: 100%;
   display: flex;
@@ -84,6 +107,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Thank You Button */
 #thank-you-btn {
   margin-top: 20px;
   display: flex;
