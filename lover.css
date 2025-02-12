@@ -1,4 +1,9 @@
-/* Heart Animation */
+html,
+body {
+  overflow-x: hidden; /* Prevents the sidebar from appearing */
+  max-width: 100vw; /* Ensures no unwanted horizontal expansion */
+}
+
 .heart {
   font-size: 6vw;
   color: red;
@@ -32,6 +37,8 @@
   background-attachment: fixed;
   -webkit-background-attachment: fixed;
   -moz-background-attachment: fixed; /* Firefox */
+  transform: translateZ(0); /* Forces GPU rendering to keep it still */
+  will-change: transform; /* Optimizes for performance */
 }
 
 /* Fade Out Animation */
@@ -62,20 +69,18 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 90vw; /* Ensure it doesn’t exceed the viewport */
+  max-width: 800px; /* Keep it controlled */
   transform: translate(-50%, -50%);
   z-index: 10;
+  overflow: hidden; /* Prevents unwanted scroll */
 }
 
 /* Ensure image stays contained but never exceeds viewport size */
 .slideshow-image {
   width: 100%;
   height: auto;
-  max-width: 100%; /* You can adjust this value */
-  border-radius: 10px;
-  border: 10px double red;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
-  opacity: 1;
-  transition: opacity 2s ease-in-out;
+  max-width: 100%;
 }
 
 /* For smaller devices, adjust the max-width to ensure visibility */
