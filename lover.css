@@ -1,9 +1,9 @@
 html,
 body {
   overflow-y: auto;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
+  overflow-x: hidden;
   max-width: 100vw;
-  height: 100vh; /* Ensures viewport is constrained */
+  height: auto;
 }
 
 .heart {
@@ -38,8 +38,8 @@ body {
   z-index: -1;
   background-attachment: fixed;
   -webkit-background-attachment: fixed;
-  -moz-background-attachment: fixed; /* Firefox */
-  transform: translateZ(0); /* Forces GPU rendering to keep it still */
+  -moz-background-attachment: fixed;
+  transform: translateZ(0);
   will-change: transform; /* Optimizes for performance */
 }
 
@@ -73,9 +73,14 @@ body {
   left: 50%;
   width: 90vw; /* Ensure it doesn’t exceed the viewport */
   max-width: 800px; /* Keep it controlled */
-  transform: translate(-50%, -50%);
+  transform: translate(
+    -50%,
+    -50%
+  ) !important; /* Ensures no unintended scaling or translate issues */
   z-index: 10;
   overflow: hidden; /* Prevents unwanted scroll */
+  height: auto; /* Ensures the height adjusts automatically */
+  will-change: transform; /* Helps with optimization and prevents layout shifts */
 }
 
 /* Ensure image stays contained but never exceeds viewport size */
@@ -84,8 +89,9 @@ body {
   width: 100%;
   height: auto;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: cover; /* Change from 'contain' to 'cover' if images need to fill space without scaling */
   border: 10px dotted red;
+  transform: none !important; /* Ensures no unintended zoom effects */
 }
 
 /* For smaller devices, adjust the max-width to ensure visibility */
