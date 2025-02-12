@@ -1,9 +1,4 @@
-html,
-body {
-  overflow-x: hidden; /* Prevents the sidebar from appearing */
-  max-width: 100vw; /* Ensures no unwanted horizontal expansion */
-}
-
+/* Heart Animation */
 .heart {
   font-size: 6vw;
   color: red;
@@ -37,8 +32,16 @@ body {
   background-attachment: fixed;
   -webkit-background-attachment: fixed;
   -moz-background-attachment: fixed; /* Firefox */
-  transform: translateZ(0); /* Forces GPU rendering to keep it still */
-  will-change: transform; /* Optimizes for performance */
+}
+
+/* Prevent Scrollbars */
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Fade Out Animation */
@@ -69,11 +72,11 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 90vw; /* Ensure it doesn’t exceed the viewport */
-  max-width: 800px; /* Keep it controlled */
   transform: translate(-50%, -50%);
   z-index: 10;
-  overflow: hidden; /* Prevents unwanted scroll */
+  width: 100vw; /* Ensures it doesn't exceed viewport width */
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 /* Ensure image stays contained but never exceeds viewport size */
@@ -81,6 +84,12 @@ body {
   width: 100%;
   height: auto;
   max-width: 100%;
+  display: block; /* Prevents unwanted gaps */
+  border-radius: 10px;
+  border: 10px double red;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
 }
 
 /* For smaller devices, adjust the max-width to ensure visibility */
